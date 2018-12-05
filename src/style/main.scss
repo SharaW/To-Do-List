@@ -1,0 +1,71 @@
+html {
+    font-size: 62.5%; // 1rem is 10px
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'montserrat';
+}
+
+body {
+    overflow-x: hidden;
+    font-weight: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+    margin-top: 2rem;
+    display: grid;
+    justify-items: center;
+}
+
+
+
+.layout {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-rows: 20px [title-s] 80px [title-e add-s] 120px [add-e todos-s] 1fr [todos-e];
+    grid-template-columns: 140px [s] 1fr [e] 140px;
+
+    & > * {
+        grid-column: s/e;
+    }
+
+    &__title {
+        grid-row: title-s/title-e;
+    }
+    &__add-todo {
+        grid-row: add-s/add-e;
+        background: navy;
+
+        input,
+        button {
+            height: 40px;
+            font-size: 24px;
+        }
+        input {
+            width: 50%;
+            margin-right: 40px;
+        }
+        button { 
+            width: 130px;
+        }
+    }
+
+    &__todos {
+        grid-row: todos-s/todos-e;
+        background: ghostwhite;
+    }
+
+    background: rgb(196, 238, 254);
+}
